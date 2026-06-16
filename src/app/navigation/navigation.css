@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: brown;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 20px; 
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  margin: 20px;
+  color: white;
+}

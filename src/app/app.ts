@@ -5,7 +5,7 @@ import { Navigation } from './navigation/navigation';
 import { Register } from './Register/register/register';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Navigation,Register],
+  imports: [RouterOutlet,Navigation],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

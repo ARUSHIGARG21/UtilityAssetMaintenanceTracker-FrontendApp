@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -7,4 +7,19 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navigation.html',
   styleUrl: './navigation.css',
 })
-export class Navigation {}
+export class Navigation {
+
+  constructor(private router: Router) {}
+
+ 
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+
+    this.router.navigate(['/login']);
+  }
+}

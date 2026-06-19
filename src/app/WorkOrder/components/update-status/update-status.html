@@ -1,0 +1,5 @@
+<select [ngModel]="currentStatus" (change)="statusChange.emit($any($event.target).value)" class="inline-dropdown-select" [attr.data-status]="currentStatus">
+  <option value="Pending">Pending</option>
+  <option value="In Progress">In Progress</option>
+  <option value="Completed">Completed</option>
+</select>

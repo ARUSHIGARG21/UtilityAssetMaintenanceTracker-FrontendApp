@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  background-color: rgb(176, 53, 94) ; /* Force pink background */
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 30px;
+  height: 64px;
+  box-shadow: 0 4px 12px rgba(176, 53, 94, 0.2);
+}
+
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul li a {
+  color: #ffffff; 
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

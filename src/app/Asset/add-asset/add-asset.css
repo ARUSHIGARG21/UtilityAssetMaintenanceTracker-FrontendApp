@@ -1,0 +1,12 @@
+div{
+    border: 2px solid black;
+    margin: 20px;
+    padding: 40px;
+}
+h3{
+    display: inline;
+    margin: 20px;
+}
+input{
+    margin: 10px;
+}

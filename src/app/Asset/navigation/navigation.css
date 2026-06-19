@@ -1,0 +1,40 @@
+
+.active-link {
+  background-color: #0d6efd;  
+  color: white !important;
+  border-radius: 5px;
+  padding: 6px 12px;
+}
+
+.nav-link:hover {
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+/* Bigger nav links */
+.nav-big {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+
+.nav-big:hover {
+  background-color: #e9ecef;
+  transform: scale(1.08);
+}
+
+
+.active-link {
+  background: linear-gradient(45deg, #0d6efd, #4dabf7);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+.nav-big:active {
+  transform: scale(0.95);
+}
+

@@ -1,0 +1,61 @@
+
+<div class="d-flex justify-content-end align-items-center m-3">
+
+  <button 
+    [routerLink]="['/asset-navigation/add-asset']" 
+    class="btn btn-success">
+    Add Asset
+  </button>
+
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+
+    @for (a of assetArray; track a.assetID) {
+
+      <div class="col-md-4 mb-3">
+
+        <div class="card h-100">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ a.name }}</h5>
+            <p>
+              Asset ID: AS-{{ ('00' + a.assetID).slice(-2) }} <br>
+              Type: {{ a.type }} <br>
+              Status: {{ a.status }} <br>
+              Date: {{ a.installationDate }}
+            </p>
+
+            <p><strong>Location:</strong></p>
+
+            @for (loc of a.locations; track loc.locationID) {
+              <p>
+                Location ID: LN-{{ ('00' + loc.locationID).slice(-2) }} <br>
+                Region: {{ loc.region }} <br>
+                Site Code: {{ loc.siteCode }}
+              </p>
+            } @empty {
+              <p class="text-muted small">No locations assigned</p>
+            }
+            
+            <div class="d-flex justify-content-between mt-3">
+              <button class="btn btn-primary" [routerLink]="['/asset-navigation/update-asset', a.assetID]">Update</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    } @empty {
+      <div class="col-12 text-center">
+        <p class="text-muted">No assets found.</p>
+      </div>
+    }
+
+  </div>
+</div>

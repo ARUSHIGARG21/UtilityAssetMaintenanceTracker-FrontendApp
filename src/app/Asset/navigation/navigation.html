@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-5 py-3 shadow">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav w-100 d-flex justify-content-evenly text-center">
+
+        <li class="nav-item">
+          <a class="nav-link nav-big"
+             routerLink="show-asset"
+             routerLinkActive="active-link">
+            Asset
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-big"
+             routerLink="maintenance-plan"
+             routerLinkActive="active-link">
+            Maintenance Plan
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-big"
+             routerLink="technician"
+             routerLinkActive="active-link">
+            Technician
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-big"
+             routerLink="work-order"
+             routerLinkActive="active-link">
+            WorkOrder
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

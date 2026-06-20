@@ -1,0 +1,85 @@
+<!-- 
+
+<div class="sub-navbar">
+  <div class="sub-nav-container">
+    
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="number" 
+        [(ngModel)]="searchId" 
+        (keyup.enter)="executeSearch()"
+        placeholder="Enter Plan ID and press Enter..." />
+    </div>
+    
+    <div class="sub-nav-right">
+      <button class="get-task-btn" routerLink="/get-tasks">Get Tasks</button> 
+      <button class="create-plan-btn" (click)="openCreatePlanModal()">+ Create Plan</button>
+    </div>
+    
+  </div>
+</div>
+
+<div class="routing-view-container" [ngClass]="{'blur-background': showModal}">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-modal-x" (click)="closeModal()">&times;</button>
+    <app-add-plans (planAddedSuccessfully)="onPlanAdded()"></app-add-plans>
+  </div>
+</div> -->
+
+
+
+<div class="sub-navbar">
+  <div class="sub-nav-container">
+    
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="number" 
+        [(ngModel)]="searchId" 
+        (keyup.enter)="executeSearch()"
+        placeholder="Enter Plan ID and press Enter..." />
+    </div>
+    
+    <div class="sub-nav-right">
+      <button class="get-task-btn" routerLink="/get-tasks">Get Tasks</button> 
+      <button class="create-plan-btn" (click)="openCreatePlanModal()">+ Create Plan</button>
+    </div>
+    
+  </div>
+</div>
+
+<div class="routing-view-container" [ngClass]="{'blur-background': showModal || showUpdateModal || showAddTaskModal}">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-modal-x" (click)="closeModal()">&times;</button>
+    <app-add-plans (planAddedSuccessfully)="onPlanAdded()"></app-add-plans>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showUpdateModal" (click)="closeUpdateModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-modal-x" (click)="closeUpdateModal()">&times;</button>
+    <app-update-plan 
+      [selectedPlanId]="planIdToUpdate" 
+      (planUpdatedSuccessfully)="onPlanUpdated()">
+    </app-update-plan>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showAddTaskModal" (click)="closeAddTaskModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-modal-x" (click)="closeAddTaskModal()">&times;</button>
+    <app-add-task 
+      [selectedPlanId]="planIdForTask" 
+      (taskAddedSuccessfully)="onTaskAdded()">
+    </app-add-task>
+  </div>
+</div>

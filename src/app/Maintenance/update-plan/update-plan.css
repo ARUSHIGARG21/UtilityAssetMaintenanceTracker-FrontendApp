@@ -1,0 +1,131 @@
+/* .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+input, button {
+    padding: 8px;
+}
+
+hr {
+    width: 100%;
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.static-value-field {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #495057;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.form-dropdown {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #495057;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.form-dropdown:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+} */
+
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #212529;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #495057;
+    margin-bottom: -4px;
+}
+
+input[type="text"], select, .static-value-field {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    border: 1px solid #ced4da;
+    outline: none;
+}
+
+.static-value-field {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    color: #495057;
+    font-weight: bold;
+}
+
+.form-dropdown {
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background-color 0.15s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,62 @@
+<!-- <div class="form-container">
+  <h2>Add Maintenance Plan</h2> 
+
+  <label>Select Asset ID</label>
+  <select [(ngModel)]="p.assetID" name="assetID" required>
+    <option [value]="undefined" disabled selected>-- Select Asset ID --</option>
+    @for(asset of assetList; track asset.assetID) {
+      <option [value]="asset.assetID">AS-{{ asset.assetID | number:'2.0-0' }}</option>
+    }
+  </select>
+
+  <label>Select Asset Type</label>
+  <select [(ngModel)]="p.type" name="type" required>
+    <option [value]="undefined" disabled selected>-- Select Asset Type --</option>
+    @for(asset of assetList; track asset.assetID) {
+      <option [value]="asset.type">{{ asset.type }}</option>
+    }
+  </select>
+
+  <label>Select Frequency</label>
+  <select [(ngModel)]="p.frequency" name="frequency" required>
+    <option [value]="undefined" disabled selected>-- Select Frequency --</option>
+    @for(freq of frequencies; track freq) {
+      <option [value]="freq">{{ freq }}</option>
+    }
+  </select>
+  
+  <button (click)="Addplan()">Submit</button>
+</div> -->
+
+
+
+
+<div class="form-container">
+  <h2>Add Maintenance Plan</h2> 
+
+  <label>Select Asset ID</label>
+  <select [(ngModel)]="p.assetID" name="assetID" required>
+    <option [value]="undefined" disabled selected>-- Select Asset ID --</option>
+    @for(asset of assetList; track asset.assetID) {
+      <option [value]="asset.assetID">AS-{{ asset.assetID | number:'2.0-0' }}</option>
+    }
+  </select>
+
+  <label>Select Asset Type</label>
+  <select [(ngModel)]="p.type" name="type" required>
+    <option [value]="undefined" disabled selected>-- Select Asset Type --</option>
+    @for(type of uniqueAssetTypes; track type) {
+      <option [value]="type">{{ type }}</option>
+    }
+  </select>
+
+  <label>Select Frequency</label>
+  <select [(ngModel)]="p.frequency" name="frequency" required>
+    <option [value]="undefined" disabled selected>-- Select Frequency --</option>
+    @for(freq of frequencies; track freq) {
+      <option [value]="freq">{{ freq }}</option>
+    }
+  </select>
+  
+  <button (click)="Addplan()">Submit</button>
+</div>

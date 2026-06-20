@@ -1,0 +1,64 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #212529;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #495057;
+    margin-bottom: -4px;
+}
+
+input[type="text"], input[type="number"], .static-value-field {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input {
+    border: 1px solid #ced4da;
+    outline: none;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+.static-value-field {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    color: #495057;
+    font-weight: bold;
+}
+
+.save-task-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background-color 0.15s;
+    width: 100%;
+}
+
+.save-task-btn:hover {
+    background-color: #0056b3;
+}

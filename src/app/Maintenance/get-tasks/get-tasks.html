@@ -1,0 +1,17 @@
+<h2>Maintenance Tasks List</h2>
+
+<table>
+    <tr>
+        <td>Task ID</td>
+        <td>Description</td>
+        <td>Estimated Hours</td>
+    </tr>
+    
+    @for(t of allTasks; track t.taskID) {
+        <tr>
+            <td>TSK-{{ t.taskID | number:'2.0-0' }}</td>
+            <td>{{ t.description }}</td>
+            <td>{{ t.estimatedHours }} hrs</td>
+        </tr>
+    }
+</table>

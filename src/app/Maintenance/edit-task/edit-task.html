@@ -1,0 +1,18 @@
+<div class="form-container">
+  <h2>Edit Maintenance Task</h2> 
+
+  <label>Task ID to Update:</label>
+  <input type="number" [(ngModel)]="idToUpdate" />
+  <hr>
+
+  <label>New Plan ID:</label>
+  <input type="number" [(ngModel)]="t.planID" />
+
+  <label>New Description:</label>
+  <input type="text" [(ngModel)]="t.description" />
+
+  <label>New Estimated Hours:</label>
+  <input type="number" [(ngModel)]="t.estimatedHours" />
+  
+  <button (click)="UpdateTask()">Save Changes</button>
+</div>

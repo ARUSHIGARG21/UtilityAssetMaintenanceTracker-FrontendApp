@@ -1,0 +1,23 @@
+<div class="form-container">
+  <h2>Update Maintenance Plan </h2> 
+
+  <label>Asset ID</label>
+  <div class="static-value-field">AS-{{ p.assetID | number:'2.0-0'  }}</div>
+
+  <label>New Asset Name</label>
+  <input type="text" [(ngModel)]="p.name" name="name" placeholder="Enter asset name" required>
+
+  <label>New Asset Type</label>
+  <input type="text" [(ngModel)]="p.type" name="type" placeholder="Enter asset type (e.g., Transformer)" required>
+
+  <label>New Frequency</label>
+  <select [(ngModel)]="p.frequency" name="frequency" required class="form-dropdown">
+    <option [value]="undefined" disabled selected hidden>Select frequency</option>
+    <option value="weekly">Weekly</option>
+    <option value="quarterly">Quarterly</option>
+    <option value="half-yearly">Half-Yearly</option>
+    <option value="yearly">Yearly</option>
+  </select>
+  
+  <button (click)="Updateplan()">Save Changes</button>
+</div>

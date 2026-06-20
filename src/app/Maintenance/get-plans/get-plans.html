@@ -1,0 +1,63 @@
+
+
+<div class="container mt-4">
+  <div class="row">
+    @for(p of displayedPlans; track p.planID) {
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            
+            <h5 class="card-title text-primary font-weight-bold mb-1">{{ p.name }}</h5>
+            <small class="text-muted mb-3">Plan ID: MP-{{ p.planID | number:'2.0-0' }}</small>
+            
+            <p class="card-text mb-3">
+              <strong>Asset Type:</strong> {{ p.type }}<br>
+              <strong>Asset ID:</strong> {{ p.assetID }}<br>
+              <strong>Frequency:</strong> <span class="badge bg-secondary">{{ p.frequency }}</span>
+            </p>
+
+            <hr class="my-2">
+
+            <div class="tasks-section flex-grow-1">
+              <h6 class="text-secondary font-weight-bold mb-2">Assigned Tasks</h6>
+              
+              @if (!p.tasks || p.tasks.length === 0) {
+                <p class="text-muted small italic">No maintenance tasks mapped.</p>
+              } @else {
+                <div class="embedded-task-list">
+                  @for(t of p.tasks; track t.taskID) {
+                    <div class="mini-task-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 8px; background-color: #fff;">
+                      <div class="d-flex justify-content-between align-items-center">
+                        
+                        <div class="d-flex flex-column">
+                          <span class="task-desc font-weight-bold" style="color: #333;">{{ t.description }}</span>
+                          <span class="task-hours text-muted small">Estimated: {{ t.estimatedHours }}h</span>
+                        </div>
+                        
+                        <app-delete-task 
+                          [taskId]="t.taskID!" 
+                          (deletionSuccessful)="handleTaskDeleted(p, $event)">
+                        </app-delete-task>
+
+                      </div>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+
+            <div class="card-actions d-flex gap-2 mt-3 pt-2 border-top">
+              <button class="btn btn-outline-primary btn-sm flex-fill" (click)="goToUpdatePage(p.planID!)">
+                Update Plan
+              </button>
+              <button class="btn btn-success btn-sm flex-fill" (click)="openAddTaskPopup(p.planID!)">
+                + Add Task
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

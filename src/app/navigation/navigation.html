@@ -1,8 +1,14 @@
 <header>
-    <h3>Asset Maintenance</h3>
+    <h3>Utility Asset Maintenance Tracker</h3>
     <ul>
-    <li routerLink="/login" >Login</li>
-    <li routerLink="/register">Register</li>
+            @if (!isLoggedIn()) {
+        <button routerLink="/login" class="btn btn-primary">Login</button>
+        <button routerLink="/register" class="btn btn-success">Register</button>
+        }
+
+        @if (isLoggedIn()) {
+        <button (click)="logout()" class="btn btn-info">Logout</button>
+        }
     </ul>
 
 </header>

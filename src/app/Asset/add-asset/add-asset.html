@@ -1,0 +1,45 @@
+<div>
+    <h3>Asset Name:</h3>
+    <input type="text" [(ngModel)]="a.name" placeholder="Name of the Asset"><br>
+
+    <h3>Select Asset Type:</h3>
+    <select [(ngModel)]="a.type" #typeSelect>
+        <option value="" disabled selected>--Select Asset Type--</option>
+        
+        @for(type of assetTypes; track $index){
+            <option [value]="type">{{type}}</option>
+        }
+        
+        <option value="Other">Other (If not present here)</option>
+    </select>
+    <br>
+
+    @if(typeSelect.value === 'Other'){
+        <div style="margin-top: 10px; padding: 10px; border: 1px dashed #ccc; width: fit-content;">
+            <input type="text" [(ngModel)]="newAssetType" placeholder="Enter New Asset Type"><br>
+            <button type="button" class="btn btn-primary" (click)="addNewAssetType()">Add Asset Type</button>
+        </div>
+    }
+    <br>
+
+    <h3>Installation Date:</h3>
+    <input type="datetime-local" [(ngModel)]="a.installationDate">
+    <br>
+
+    <h3>Region:</h3>
+    <select [(ngModel)]="a.locations[0].region">
+        <option value="" disabled selected>--Select Region--</option>
+        <option value="North">North</option>
+        <option value="South">South</option>
+        <option value="East">East</option>
+        <option value="West">West</option>
+    </select>
+    <br>
+
+    <h3>Site Code:</h3>
+    <input type="text" [(ngModel)]="a.locations[0].siteCode" placeholder="Enter Site Code"><br>
+
+    <br><br>
+
+    <button (click)="handleAddClick()" class="btn btn-success">Add Asset</button>
+</div>

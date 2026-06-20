@@ -1,0 +1,14 @@
+<div class="form-container">
+  <h2>Add New Task</h2>
+
+  <label>Target Plan ID:</label>
+  <div class="static-value-field">MP-{{ selectedPlanId }}</div>
+
+  <label>Description:</label>
+  <input type="text" [(ngModel)]="t.description" name="description" placeholder="e.g. Clean oil filters" required />
+
+  <label>Estimated Hours:</label>
+  <input type="number" [(ngModel)]="t.estimatedHours" name="estimatedHours" placeholder="e.g. 3" required />
+
+  <button class="save-task-btn" (click)="AddTask()">Save Task</button>
+</div>

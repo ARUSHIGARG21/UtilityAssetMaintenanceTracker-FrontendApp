@@ -1,0 +1,26 @@
+<form style="max-width: 450px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    
+    <div class="mb-3">
+        <label><strong>Asset Name:</strong></label>
+        <input type="text" name="assetName" [(ngModel)]="u.assetName" class="form-control"><br>
+    </div>
+
+    <div class="mb-3">
+        <label><strong>Select Asset Type:</strong></label>
+        <!-- <select name="assetType" [(ngModel)]="u.assetType" class="form-select">
+            <option value="" disabled>--Select Asset Type--</option>
+            <option value="Transformer">Transformer</option>
+            <option value="Pipeline">Pipeline</option>
+            <option value="ServiceStation">ServiceStation</option>
+        </select> -->
+        <input type="text" name="assetType" [(ngModel)]="u.assetType" class="form-control" ><br>
+    </div>
+    <br>
+
+    <div class="mb-3">
+        <label><strong>Installation Date:</strong></label>
+        <input type="datetime-local" name="installationDate" [(ngModel)]="u.installationDate" class="form-control"><br>
+    </div>
+
+    <button type="button" (click)="updateAsset()" class="btn btn-primary w-100">Update Asset</button>
+</form>

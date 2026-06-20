@@ -1,0 +1,118 @@
+
+<div class="page-container">
+  
+  <div class="header-panel">
+    <h2>Work Orders Dashboard</h2>
+    <button class="btn-primary" (click)="openAssetSelectionModal()">
+      ⚡ Generate Work Order
+    </button>
+  </div>
+
+  <div class="tabs-row">
+    <button class="tab" [class.active]="selectedTab === 'All'" (click)="filterStatus('All')">
+      All <span class="badge">{{ totalCount }}</span>
+    </button>
+    <button class="tab" [class.active]="selectedTab === 'Pending'" (click)="filterStatus('Pending')">
+      Open <span class="badge">{{ pendingCount }}</span>
+    </button>
+    <button class="tab" [class.active]="selectedTab === 'In Progress'" (click)="filterStatus('In Progress')">
+      In Progress <span class="badge">{{ inProgressCount }}</span>
+    </button>
+    <button class="tab" [class.active]="selectedTab === 'Completed'" (click)="filterStatus('Completed')">
+      Completed <span class="badge">{{ completedCount }}</span>
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>WORK ORDER ID</th>
+          <th>PLAN ID</th>
+          <th>ASSET ID</th>
+          <th>SCHEDULED DATE</th>
+          <th>STATUS</th>
+          <th>ASSIGNED_TECHNICIAN</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(s of filteredOrders; track s.workOrderID) {
+          <tr class="table-row">
+            <td class="id-text" (click)="openDetailsModal(s)">WO-{{ ('00' + s.workOrderID).slice(-2) }}</td>
+            <td (click)="openDetailsModal(s)">MP-{{ ('00' + s.planID).slice(-2) }}</td>
+            <td (click)="openDetailsModal(s)">AS-{{ ('00' + s.assetID).slice(-2) }}</td>
+            <td (click)="openDetailsModal(s)">{{ s.scheduledDate | date }}</td>
+            
+            <td>
+              <app-update-status [currentStatus]="s.status" (statusChange)="onInlineStatusChange(s.workOrderID!, $event)"></app-update-status>
+            </td>
+
+            <td>
+              @if(s.technicianName || s.technicianID) {
+                <div class="tech-profile">
+                  <span>👤 {{ s.technicianName || 'Tech ID: ' + s.technicianID }}</span>
+                </div>
+              } @else {
+                <app-assign-technician [technicians]="techniciansList" (assign)="onInlineTechAssign(s.workOrderID!, $event)"></app-assign-technician>
+              }
+            </td>
+
+            <td>
+              <div class="action-box">
+                <button class="btn-view" (click)="openDetailsModal(s)">👁️ View</button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <app-generate-workorders 
+    *ngIf="isAssetModalOpen" 
+    [assets]="dynamicAssetsList" 
+    [chosenAssetID]="chosenAssetID"
+    (chosenAssetIDChange)="chosenAssetID = $event"
+    (close)="closeAssetSelectionModal()" 
+    (generate)="executeWorkOrderGeneration()">
+  </app-generate-workorders>
+
+  <div *ngIf="selectedOrder !== null" class="popup-backdrop" (click)="closeDetailsModal()">
+    <div class="popup-card" (click)="$event.stopPropagation()">
+      
+      <div class="popup-header">
+        <div>
+          <h3>WO-0{{ selectedOrder.workOrderID }} Details</h3>
+          <p class="popup-subtitle">Detailed Record</p>
+        </div>
+        <button class="btn-close" (click)="closeDetailsModal()">&times;</button>
+      </div>
+
+      <div class="popup-grid">
+        <div class="info-box"><label>ASSET TRACKING ID</label><p class="value-text">AS-0{{ selectedOrder.assetID }}</p></div>
+        <div class="info-box"><label>MAINTENANCE PLAN ID</label><p class="value-text">MP-0{{ selectedOrder.planID }}</p></div>
+        <div class="info-box"><label>TASK RUN ID</label><p class="value-text">TSK-0{{ selectedOrder.taskID }}</p></div>
+        <div class="info-box"><label>TARGET SCHEDULED DATE</label><p class="value-text">{{ selectedOrder.scheduledDate | date:'fullDate' }}</p></div>
+        <div class="info-box grid-span-2">
+          <label>CURRENT STATUS</label>
+          <div><span class="status-pill" [attr.data-status]="selectedOrder.status">{{ selectedOrder.status }}</span></div>
+        </div>
+      </div>
+
+      <div class="popup-tech-section">
+        <label>ALLOCATED TECHNICIAN</label>
+        <div *ngIf="selectedOrder.technicianName || selectedOrder.technicianID">
+          <div class="tech-card-large">
+            <div class="large-avatar">👤</div>
+            <div>
+              <p class="tech-name">{{ selectedOrder.technicianName || 'Staff ID: ' + selectedOrder.technicianID }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

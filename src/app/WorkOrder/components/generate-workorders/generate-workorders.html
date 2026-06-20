@@ -1,0 +1,32 @@
+
+<div class="overlay" (click)="closePopup()">
+  
+  <div class="popup" (click)="keepPopupOpen($event)">
+    
+    <div class="popup-header">
+      <h3>Select Target Asset</h3>
+      <button class="close-x" (click)="closePopup()">&times;</button>
+    </div>
+    
+    <div class="box-form-body">
+      <p class="popup-text">Choose an asset</p>
+      
+      <select [(ngModel)]="chosenAssetID" class="inline-dropdown-select">
+        <option [value]="null" disabled selected>-- Choose Available Asset ID --</option>
+        @for(asset of assets; track asset) {
+          <option [value]="asset">AS-{{ ('00' + asset).slice(-2) }}</option>
+        }
+      </select>
+      
+      <div class="btn-row">
+        <button class="btn btn-cancel" (click)="closePopup()">
+          Cancel
+        </button>
+        <button class="btn btn-generate" (click)="submitGeneration()">
+          Generate WorkOrder
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

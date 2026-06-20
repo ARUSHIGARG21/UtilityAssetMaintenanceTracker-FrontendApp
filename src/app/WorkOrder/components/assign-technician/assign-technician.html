@@ -1,0 +1,9 @@
+<div class="inline-assignment-box">
+  <select #techSelect class="inline-dropdown-select" style="background: white;">
+    <option value="" disabled selected>-- Select Tech --</option>
+    @for(t of technicians; track t.technicianID) {
+      <option [value]="t.technicianID">{{ t.name }}</option>
+    }
+  </select>
+  <button class="btn-table-assign" (click)="assign.emit(techSelect.value)">Assign</button>
+</div>

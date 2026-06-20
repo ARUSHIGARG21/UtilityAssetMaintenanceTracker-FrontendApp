@@ -1,0 +1,145 @@
+/* Full width second navbar bar background strip */
+.sub-navbar {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Inner alignment layout container */
+.sub-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Aligns comfortably on wide screens */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Rounded Border Input Search Field box */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Smooth professional rounded edges */
+    padding: 6px 12px;
+    width: 320px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    margin-left: 8px;
+    width: 100%;
+    font-size: 14px;
+    color: #495057;
+}
+
+/* Right layout side items block wrapper */
+.sub-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Premium Accent "+ Create Plan" layout button structure */
+.create-plan-btn {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.create-plan-btn:hover {
+    background-color: #0b5ed7;
+}
+
+.get-task-btn {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+.get-task-btn:hover {
+    background-color: #0b5ed7;
+}
+
+/* Keeps grid and main table content padded below the new header navbar */
+.title {
+    margin-top: 30px;
+}
+
+.routing-view-container {
+    margin-top: 25px;
+}
+
+
+/* Piche chal rhi navigation and grid content cards ko filter out blur karne ke liye */
+/* Piche chal rhi list ko blur karne ke liye */
+.blur-background {
+    filter: blur(5px);
+    pointer-events: none;
+    transition: filter 0.2s ease;
+}
+
+/* 1. Modal Overlay setup (Yeh poore screen ko black transparent shade dega) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark dim effect */
+    display: flex;                  /* Flexbox use karenge centering ke liye */
+    justify-content: center;        /* Horizontally center karega */
+    align-items: center;            /* Vertically center karega */
+    z-index: 9999;                  /* Sabse upar dikhane ke liye */
+}
+
+/* 2. Modal Content (Yeh aapka chota sa white box hoga) */
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    animation: popupSlide 0.2s ease-out;
+    
+    /* WIDTH KO LOCK KAR DIYA - Isse form bada nahi hoga */
+    width: 340px;                   
+    box-sizing: border-box;
+}
+
+/* Top Right corner ka close (X) button */
+.close-modal-x {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
+.close-modal-x:hover {
+    color: #dc3545;
+}
+
+@keyframes popupSlide {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

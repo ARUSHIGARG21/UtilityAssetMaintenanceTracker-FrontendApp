@@ -1,0 +1,41 @@
+<div class="modal-overlay">
+  <div class="modal-box">
+    <h3 class="mb-3">Add Technician</h3>
+
+    <form (ngSubmit)="addTechnician()" #techForm="ngForm">
+      <!-- Name -->
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="technician.name" name="name" required>
+      </div>
+
+      <!-- Skill Set Dropdown -->
+      <div class="mb-3">
+        <label class="form-label">Skill Set</label>
+        <select class="form-select"
+                [(ngModel)]="technician.skillSet" name="skillSet"
+                (change)="onSkillChange($event)" required>
+          <option *ngFor="let skill of skillSets" [value]="skill">{{ skill }}</option>
+          <option value="Other">Other...</option>
+        </select>
+      </div>
+
+      <!-- Custom Skill Input -->
+      <div class="mb-3" *ngIf="isCustomSkill">
+        <label class="form-label">Enter New Skill</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="technician.skillSet" name="customSkill" required>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-end">
+        <!-- ✅ Cancel navigates back -->
+        <button type="button" class="btn btn-secondary me-2" (click)="cancel()">Cancel</button>
+        <!-- ✅ Save posts data and then navigates back -->
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+
+    </form>
+  </div>
+</div>

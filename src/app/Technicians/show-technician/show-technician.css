@@ -1,0 +1,47 @@
+/* src/app/Technicians/show-technician/show-technician.css */
+
+/* Square card styling */
+.technician-card {
+  aspect-ratio: 1 / 1;          /* ✅ perfect square */
+  max-width: 280px;             /* ✅ medium width */
+  height: 280px;                /* ✅ medium height */
+  margin: auto;                 /* center in column */
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  border: 3px solid #443a71;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover effect */
+.technician-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+  cursor: pointer;
+}
+
+/* Title styling */
+.card-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Badge styling */
+.skill-badge {
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.technician-card:hover .skill-badge {
+  background-color: #ff6f61;
+}

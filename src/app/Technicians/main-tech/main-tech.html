@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Technicians</h2>
+
+  <!-- Technician cards -->
+  <app-show-technician></app-show-technician>
+
+  <!-- ✅ Only one button -->
+  <button class="btn btn-success float-end" (click)="showModal = true">
+    <i class="bi bi-plus-lg me-2"></i> Add Technician
+  </button>
+
+  <!-- ✅ Modal appears only when button clicked -->
+  <app-add-technician *ngIf="showModal" (close)="showModal = false"></app-add-technician>
+</div>

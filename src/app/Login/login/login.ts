@@ -17,7 +17,7 @@ export class Login {
   constructor(private client: HttpClient, private router: Router) {}
 
   loginHandler() {
-    this.client.post("http://localhost:7078/api/Auth/login", this.u)
+    this.client.post("http://localhost:5037/api/Auth/login", this.u)
       .subscribe({
         next: (res: any) => {
           this.result = res;

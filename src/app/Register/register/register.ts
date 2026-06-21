@@ -15,7 +15,7 @@ export class Register {
     constructor(private client: HttpClient,private router:Router){}
     registerHandler(){
       this.client.post(
-    "http://localhost:7078/api/Auth/register",this.u,{ responseType: 'text' } )
+    "http://localhost:5037/api/Auth/register",this.u,{ responseType: 'text' } )
   .subscribe({
     next: (res) => {
       alert("Registration Successful");

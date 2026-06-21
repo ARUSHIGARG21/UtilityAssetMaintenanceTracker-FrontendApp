@@ -18,7 +18,7 @@ export const routes: Routes = [
     {path:'register',component:Register},
     {path:'technician',component:ShowTechnician},
      { path: 'add-tech', component: AddTechnician },
-    {path:'technician',component:MainTech}
+    {path:'main-technician',component:MainTech}
     {path:'asset-navigation',component:Navigation,
         children:[
             {path:'add-asset', component:AddAsset},
